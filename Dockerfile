@@ -1,11 +1,12 @@
-FROM gradle:8.5.0-jdk23 AS build
+# Etapa 1: Construcción con Gradle
+FROM gradle:8.5.0-jdk17 AS builder
+WORKDIR /app
 COPY . .
-WORKDIR /app
-RUN gradle build -x test
+RUN gradle bootJar --no-daemon
 
-FROM eclipse-temurin:17
+# Etapa 2: Imagen final usando OpenJDK
+FROM openjdk:17-jdk
 WORKDIR /app
-COPY --from=build /app/build/libs/*.jar app.jar
-
+COPY --from=builder /app/build/libs/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
