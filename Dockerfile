@@ -1,4 +1,4 @@
-FROM gradle:latest-jdk23 AS build
+FROM gradle:8.5.0-jdk23 AS build
 COPY . .
 WORKDIR /app
 RUN gradle build -x test
