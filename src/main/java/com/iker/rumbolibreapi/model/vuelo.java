@@ -1,8 +1,6 @@
 package com.iker.rumbolibreapi.model;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
 
 @Entity
 @Table(name = "vuelo")
@@ -45,8 +43,6 @@ public class vuelo {
     @Column(name = "PRECIO")
     private double precio;
 
-    // Getters y Setters
-
     public Long getId() {
         return id;
     }
@@ -87,9 +83,7 @@ public class vuelo {
         this.horaInicioIda = horaInicioIda;
     }
 
-    public String getHoraFinIda() {
-        return horaFinIda;
-    }
+    public String getHoraFinIda() { return horaFinIda; }
 
     public void setHoraFinIda(String horaFinIda) {
         this.horaFinIda = horaFinIda;
@@ -123,9 +117,7 @@ public class vuelo {
         return horaInicioVuelta;
     }
 
-    public void setHoraInicioVuelta(String horaInicioVuelta) {
-        this.horaInicioVuelta = horaInicioVuelta;
-    }
+    public void setHoraInicioVuelta(String horaInicioVuelta) { this.horaInicioVuelta = horaInicioVuelta; }
 
     public String getHoraFinVuelta() {
         return horaFinVuelta;

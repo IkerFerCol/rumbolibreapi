@@ -2,7 +2,6 @@ package com.iker.rumbolibreapi.controller;
 import com.iker.rumbolibreapi.model.usuario;
 import com.iker.rumbolibreapi.model.usuarioRepository;
 
-import com.iker.rumbolibreapi.model.vuelo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
