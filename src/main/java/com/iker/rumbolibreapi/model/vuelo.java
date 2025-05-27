@@ -2,6 +2,9 @@ package com.iker.rumbolibreapi.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "vuelo")
 public class vuelo {
@@ -42,6 +45,9 @@ public class vuelo {
 
     @Column(name = "PRECIO")
     private double precio;
+
+    @ManyToMany(mappedBy = "favoritos")
+    private Set<usuario> usuariosFavoritos = new HashSet();
 
     public Long getId() {
         return id;
@@ -157,6 +163,14 @@ public class vuelo {
 
     public void setPrecio(double precio) {
         this.precio = precio;
+    }
+
+    public Set<usuario> getUsuariosFavoritos() {
+        return usuariosFavoritos;
+    }
+
+    public void setUsuariosFavoritos(Set<usuario> usuariosFavoritos) {
+        this.usuariosFavoritos = usuariosFavoritos;
     }
 }
 

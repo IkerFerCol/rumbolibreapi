@@ -3,6 +3,7 @@ import com.iker.rumbolibreapi.model.usuario;
 import com.iker.rumbolibreapi.model.usuarioRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -29,5 +30,12 @@ public class usuarioController {
     @GetMapping("/get")
     public List<usuario> getAllUsuarios() {
         return usuarioRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<usuario> getUsuarioById(@PathVariable Long id) {
+        return usuarioRepository.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
     }
 }
