@@ -9,6 +9,23 @@ import java.util.Set;
 @Table(name = "vuelo")
 public class vuelo {
 
+    public vuelo(String ciudadOrigen, String ciudadDestino, String aerolinea, String horaInicioIda, String horaFinIda, String fechaInicioIda, String fechaFinIda, String tiempoIda, String horaInicioVuelta, String horaFinVuelta, String fechaInicioVuelta, String fechaFinVuelta, String tiempoVuelta, double precio) {
+        this.ciudadOrigen = ciudadOrigen;
+        this.ciudadDestino = ciudadDestino;
+        this.aerolinea = aerolinea;
+        this.horaInicioIda = horaInicioIda;
+        this.horaFinIda = horaFinIda;
+        this.fechaInicioIda = fechaInicioIda;
+        this.fechaFinIda = fechaFinIda;
+        this.tiempoIda = tiempoIda;
+        this.horaInicioVuelta = horaInicioVuelta;
+        this.horaFinVuelta = horaFinVuelta;
+        this.fechaInicioVuelta = fechaInicioVuelta;
+        this.fechaFinVuelta = fechaFinVuelta;
+        this.tiempoVuelta = tiempoVuelta;
+        this.precio = precio;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
@@ -45,6 +62,12 @@ public class vuelo {
 
     @Column(name = "PRECIO")
     private double precio;
+
+
+
+    public vuelo() {
+
+    }
 
     public Long getId() {
         return id;
